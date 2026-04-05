@@ -21,7 +21,7 @@ const About = () => {
   }, [isInView, mainControls])
 
   return (
-    <div ref={sectionRef} className="pt-[60px] md:pt-0 overflow-hidden">
+    <div ref={sectionRef} className="pt-0 overflow-hidden">
       <motion.div
         initial="hidden"
         animate={mainControls}
@@ -30,7 +30,7 @@ const About = () => {
           visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
         }}
       >
-        <p className={`${styles.sectionSubText} mt-32`}>Introduction</p>
+        <p className={`${styles.sectionSubText} mt-2 md:mt-32`}>Introduction</p>
       </motion.div>
 
       <motion.div
