@@ -1,7 +1,7 @@
 import React, { useEffect, Component } from 'react'
 import './App.css'
 import { BrowserRouter } from 'react-router-dom'
-import { About, Contact, Education, Experience, Extracurricular, Hero, Navbar, Tech, Works, StarsCanvas } from './components'
+import { About, Contact, Education, Experience, Extracurricular, Hero, Navbar, Tech, Works, StarsCanvas, Footer } from './components'
 import Feedbacks from './components/Feedbacks'
 // import { Analytics } from "@vercel/analytics/react"
 
@@ -124,11 +124,7 @@ function App() {
         <ErrorBoundary><Extracurricular /></ErrorBoundary>
         <ErrorBoundary><Tech /></ErrorBoundary>
         <ErrorBoundary><Works /></ErrorBoundary>
-        {/* <Feedbacks /> */}
-        <div className="div relative z-0">
-          <ErrorBoundary fallback="Contact form unavailable â€“ check your .env keys."><Contact /></ErrorBoundary>
-          <OTUWebring />
-        </div>
+        <ErrorBoundary><Footer /></ErrorBoundary>
         <ErrorBoundary><StarsCanvas /></ErrorBoundary>
       </div>
     </BrowserRouter>

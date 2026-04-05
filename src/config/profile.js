@@ -16,7 +16,7 @@ const profile = {
   "Passionate about full-stack development and immersive AR/VR experiences.",
   ],
   contact: {
-    email: "your-email@example.com",
+    email: "shantoislam1357@gmail.com",
     phoneE164: "+10000000000",
     phoneDisplay: "(000) 000-0000",
     linkedin: "https://www.linkedin.com/in/shanto-web-dev",

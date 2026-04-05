@@ -304,8 +304,6 @@ const SkillItem = ({ skill, index }) => {
     }
   }, [isInView, mainControls]);
 
-  const animationDelay = 0.1;
-
   const imageVariants = {
     hidden: { opacity: 0, y: 15 },
     visible: { opacity: 1, y: 0 },
@@ -317,8 +315,7 @@ const SkillItem = ({ skill, index }) => {
       initial="hidden"
       variants={imageVariants}
       animate={mainControls}
-      custom={index}
-      transition={{ delay: index * animationDelay, duration: 0.4 }}
+      transition={{ delay: 0.2, duration: 0.4 }}
       className="flex items-center justify-center pointer-events-none select-none z-[10] m-[4px]"
     >
       {/* Made the size exactly match space portfolio which was 60px max width naturally */}
