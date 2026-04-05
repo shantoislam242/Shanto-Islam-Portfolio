@@ -117,7 +117,8 @@
   transform: scale(1.05);
 }
 
-.honeycomb-row .hexagon img {
+.honeycomb-row .hexagon img,
+.honeycomb-row .hexagon svg {
   width: 80px; /* Smaller and consistent image size */
   height: 100px;
   background-color: transparent; /* Transparent to blend with hexagon background */
@@ -159,7 +160,8 @@
     margin: -8px 5px;
   }
 
-  .honeycomb-row .hexagon img {
+  .honeycomb-row .hexagon img,
+  .honeycomb-row .hexagon svg {
     width: 60px;
     height: 75px;
   }
