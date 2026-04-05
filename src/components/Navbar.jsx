@@ -70,11 +70,9 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`${styles.paddingX
-        } w-full flex items-center py-5 fixed top-0 z-20 transition-all duration-300 ${scrolled ? "bg-primary shadow-lg" : "bg-transparent"
-        }`}
+      className={`w-full h-[65px] fixed top-0 shadow-lg shadow-[#2A0E61]/50 bg-[#03001427] backdrop-blur-md z-50 sm:px-10 px-6 transition-all duration-300`}
     >
-      <div className='w-full flex justify-between items-center max-w-7xl mx-auto'>
+      <div className='w-full h-full flex justify-between items-center max-w-7xl mx-auto'>
         <Link
           to='/'
           className='flex items-center gap-2'
@@ -108,27 +106,42 @@ const Navbar = () => {
           </motion.p>
         </Link>
 
-        <ul className='list-none hidden sm:flex flex-row gap-10'>
-          {navLinks.map((nav) => (
-            <motion.li
-              key={nav.id}
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: nav.id * 0.1 }}
-            >
-              <a
-                href={`#${nav.id}`}
-                className={`${active === nav.title ? "text-white" : "text-secondary"
-                  } hover:text-white text-[18px] font-medium cursor-pointer transition-colors duration-300`}
-                onClick={() => setActive(nav.title)}
+        {/* Desktop Web Navbar Links (Centered) */}
+        <div className="hidden sm:flex flex-row items-center justify-center w-auto h-full px-4">
+          <ul className='list-none flex flex-row items-center gap-4 lg:gap-6 border border-[rgba(112,66,248,0.38)] bg-[rgba(3,0,20,0.37)] px-[30px] py-[10px] rounded-full text-gray-200'>
+            {navLinks.map((nav) => (
+              <motion.li
+                key={nav.id}
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: nav.id * 0.1 }}
               >
-                {nav.title}
-              </a>
-            </motion.li>
-          ))}
-        </ul>
+                <a
+                  href={`#${nav.id}`}
+                  className={`${active === nav.title ? "text-white" : "text-gray-300"
+                    } hover:text-[#7042f8] text-[16px] font-medium cursor-pointer transition-colors duration-300`}
+                  onClick={() => setActive(nav.title)}
+                >
+                  {nav.title}
+                </a>
+              </motion.li>
+            ))}
+          </ul>
+        </div>
 
-        <div className='sm:hidden flex flex-1 justify-end items-center'>
+        {/* Social Icons & Mobile Menu Toggle */}
+        <div className='flex items-center gap-5'>
+          {/* Social Icons (Web) */}
+          <div className="hidden sm:flex flex-row gap-5">
+            <a href={profile.contact.github} target="_blank" rel="noreferrer" className="text-white hover:text-[#7042f8] transition-colors">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+            </a>
+            <a href={profile.contact.linkedin} target="_blank" rel="noreferrer" className="text-white hover:text-[#7042f8] transition-colors">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+            </a>
+          </div>
+
+          <div className='sm:hidden flex flex-1 justify-end items-center'>
           {/* Menu Icon Toggle */}
           <div style={menuIconStyle} onClick={() => setToggle(!toggle)}>
             <span style={topBarStyle}></span>
@@ -139,7 +152,7 @@ const Navbar = () => {
           {/* Menu Items */}
           <motion.div
             className={`${!toggle ? "hidden" : "flex"
-              } p-6 black-gradient absolute top-20 right-0 mx-4 my-2 min-w-[140px] z-10 rounded-xl`}
+              } p-6 bg-[#030014]/90 backdrop-blur-md border border-[rgba(112,66,248,0.38)] absolute top-[65px] right-0 mx-4 my-2 min-w-[140px] z-10 rounded-xl`}
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: toggle ? 1 : 0, scale: toggle ? 1 : 0.95 }}
             transition={{ duration: 0.2 }}
@@ -151,8 +164,8 @@ const Navbar = () => {
                   initial={{ opacity: 0, x: 20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.3, delay: nav.id * 0.1 }}
-                  className={`font-poppins font-medium cursor-pointer text-[16px] ${active === nav.title ? "text-white" : "text-secondary"
-                    }`}
+                  className={`font-poppins font-medium cursor-pointer text-[16px] ${active === nav.title ? "text-white" : "text-gray-300"
+                    } hover:text-[#7042f8] transition-colors`}
                   onClick={() => {
                     setToggle(!toggle);
                     setActive(nav.title);
@@ -163,6 +176,7 @@ const Navbar = () => {
               ))}
             </ul>
           </motion.div>
+        </div>
         </div>
       </div>
     </nav>

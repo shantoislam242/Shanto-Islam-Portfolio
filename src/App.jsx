@@ -113,8 +113,8 @@ const OTUWebring = () => {
 function App() {
   return (
     <BrowserRouter>
-      <div className='relative z-0 bg-primary'>
-        <div className="div bg-hero-pattern bg-cover bg-no-repeat bg-center">
+      <div className='relative z-0 bg-primary overflow-x-hidden w-full max-w-[100vw]'>
+        <div className="div bg-cover bg-no-repeat bg-center">
           <ErrorBoundary><Navbar /></ErrorBoundary>
           <ErrorBoundary><Hero /></ErrorBoundary>
         </div>
@@ -127,9 +127,9 @@ function App() {
         {/* <Feedbacks /> */}
         <div className="div relative z-0">
           <ErrorBoundary fallback="Contact form unavailable â€“ check your .env keys."><Contact /></ErrorBoundary>
-          <ErrorBoundary><StarsCanvas /></ErrorBoundary>
           <OTUWebring />
         </div>
+        <ErrorBoundary><StarsCanvas /></ErrorBoundary>
       </div>
     </BrowserRouter>
   )

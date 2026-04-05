@@ -78,6 +78,7 @@ const ComputersCanvas = () => {
             maxPolarAngle={Math.PI / 2}
             minPolarAngle={Math.PI / 2}
             autoRotate={true}
+            autoRotateSpeed={5} // Increased speed for laptop view
           />
         )}
         <Computers isMobile={isMobile} />

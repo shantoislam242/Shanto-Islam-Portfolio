@@ -92,6 +92,14 @@ const Hero = () => {
           display: inline-block;
         }
       `}</style>
+      <video
+        autoPlay
+        muted
+        loop
+        className="rotate-180 absolute sm:top-[-450px] top-[-420px] left-0 w-full sm:h-full h-[75vh] object-cover -z-20 mix-blend-lighten sm:opacity-60 opacity-50"
+      >
+        <source src="/videos/blackhole.webm" type="video/webm" />
+      </video>
       <div className={`absolute inset-0 top-[120px] max-w-7xl mx-auto ${styles.paddingX} flex flex-row items-start gap-5`}>
         <div className="flex flex-col justify-center items-center mt-5">
           <div className="w-5 h-5 rounded-full bg-[#915EFF]" />

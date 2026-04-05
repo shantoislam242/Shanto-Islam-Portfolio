@@ -30,7 +30,7 @@ const About = () => {
           visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
         }}
       >
-        <p className={styles.sectionSubText}>Introduction</p>
+        <p className={`${styles.sectionSubText} mt-32`}>Introduction</p>
       </motion.div>
 
       <motion.div
@@ -44,7 +44,7 @@ const About = () => {
         <h2 className={styles.sectionHeadText}>Overview.</h2>
       </motion.div>
 
-      <div className="mt-10 flex flex-col md:flex-row items-center md:items-start gap-10">
+      <div className="mt-4 flex flex-col md:flex-row items-center md:items-start gap-10">
         <motion.div
           variants={fadeIn("right", "spring", 0.5, 0.75)}
           className="w-full md:w-1/3 flex flex-col items-center"
@@ -92,7 +92,7 @@ const About = () => {
           </div>
         </motion.div>
 
-        <motion.div variants={fadeIn("left", "spring", 0.5, 0.75)} className="w-full md:w-2/3">
+        <motion.div variants={fadeIn("left", "spring", 0.5, 0.75)} className="w-full md:w-2/3 md:pt-6">
           <motion.ul variants={fadeIn("", "", 0.1, 1)} className="mt-4 text-secondary text-[17px] max-w-3xl space-y-6 list-none">
             {profile.summary.map((item, index) => (
               <motion.li
