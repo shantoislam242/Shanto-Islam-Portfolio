@@ -316,9 +316,9 @@ const SkillItem = ({ skill, index }) => {
       variants={imageVariants}
       animate={mainControls}
       transition={{ delay: 0.2, duration: 0.4 }}
-      className="flex items-center justify-center pointer-events-none select-none z-[10] m-[2px] sm:m-[4px]"
+      className="flex items-center justify-center pointer-events-none select-none z-[10] m-[1px] sm:m-[4px]"
     >
-      <div className="w-[40px] h-[40px] xs:w-[45px] xs:h-[45px] sm:w-[65px] sm:h-[65px] lg:w-[75px] lg:h-[75px] drop-shadow-md">
+      <div className="w-[34px] h-[34px] min-[380px]:w-[42px] min-[380px]:h-[42px] sm:w-[65px] sm:h-[65px] lg:w-[75px] lg:h-[75px] drop-shadow-md">
         <skill.icon />
       </div>
     </motion.div>
@@ -394,7 +394,7 @@ export const Tech = () => {
           return (
             <div
               key={`row-${rowIndex}`}
-              className="flex flex-row justify-center flex-wrap gap-2 xs:gap-3 sm:gap-6 lg:gap-8 items-center max-w-full"
+              className="flex flex-row justify-center flex-wrap gap-1 min-[380px]:gap-2 sm:gap-6 lg:gap-8 items-center max-w-full"
             >
               {row.map((skill, i) => (
                 <SkillItem key={skill.name} skill={skill} index={currentRowIndex + i} />
