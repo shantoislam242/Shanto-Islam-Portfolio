@@ -60,8 +60,8 @@ const TypewriterText = ({ texts }) => {
 
 const WavingHand = () => {
   return (
-    <img 
-      src="https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f44b.png" 
+    <img
+      src="https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f44b.png"
       alt="Waving Hand"
       className="wave-emoji"
       style={{ display: 'inline-block', marginLeft: '10px', width: '50px', height: '50px' }}
@@ -96,7 +96,7 @@ const Hero = () => {
         autoPlay
         muted
         loop
-        className="rotate-180 absolute sm:top-[-450px] top-[-420px] left-0 w-full sm:h-full h-[75vh] object-cover -z-20 mix-blend-lighten sm:opacity-60 opacity-50"
+        className="rotate-180 absolute top-[-420px] sm:top-[calc(-20vw-80px)] xl:top-[calc(-20vw-100px)] 2xl:top-[calc(-20vw-140px)] left-0 w-full sm:h-full h-[75vh] object-cover -z-20 mix-blend-lighten sm:opacity-60 opacity-50"
       >
         <source src="/videos/blackhole.webm" type="video/webm" />
       </video>

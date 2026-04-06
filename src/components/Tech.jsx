@@ -316,10 +316,9 @@ const SkillItem = ({ skill, index }) => {
       variants={imageVariants}
       animate={mainControls}
       transition={{ delay: 0.2, duration: 0.4 }}
-      className="flex items-center justify-center pointer-events-none select-none z-[10] m-[4px]"
+      className="flex items-center justify-center pointer-events-none select-none z-[10] m-[2px] sm:m-[4px]"
     >
-      {/* Made the size exactly match space portfolio which was 60px max width naturally */}
-      <div className="w-[50px] h-[50px] sm:w-[65px] sm:h-[65px] lg:w-[75px] lg:h-[75px]">
+      <div className="w-[40px] h-[40px] xs:w-[45px] xs:h-[45px] sm:w-[65px] sm:h-[65px] lg:w-[75px] lg:h-[75px] drop-shadow-md">
         <skill.icon />
       </div>
     </motion.div>
@@ -352,13 +351,14 @@ export const Tech = () => {
     ALL_SKILLS.slice(23, 27),
   ];
 
-  // Mobile layout: structured beautifully into 6-5-6-5-5 for a natural fit
+  // Mobile layout: descending pyramid (7, 6, 5, 4, 3, 2 = 27 total)
   const mobileRows = [
-    ALL_SKILLS.slice(0, 6),
-    ALL_SKILLS.slice(6, 11),
-    ALL_SKILLS.slice(11, 17),
-    ALL_SKILLS.slice(17, 22),
-    ALL_SKILLS.slice(22, 27),
+    ALL_SKILLS.slice(0, 7),
+    ALL_SKILLS.slice(7, 13),
+    ALL_SKILLS.slice(13, 18),
+    ALL_SKILLS.slice(18, 22),
+    ALL_SKILLS.slice(22, 25),
+    ALL_SKILLS.slice(25, 27),
   ];
 
   const rows = isMobile ? mobileRows : desktopRows;
@@ -394,7 +394,7 @@ export const Tech = () => {
           return (
             <div
               key={`row-${rowIndex}`}
-              className="flex flex-row justify-center flex-wrap gap-4 sm:gap-6 lg:gap-8 items-center max-w-full"
+              className="flex flex-row justify-center flex-wrap gap-2 xs:gap-3 sm:gap-6 lg:gap-8 items-center max-w-full"
             >
               {row.map((skill, i) => (
                 <SkillItem key={skill.name} skill={skill} index={currentRowIndex + i} />
