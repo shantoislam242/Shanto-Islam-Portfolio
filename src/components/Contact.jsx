@@ -23,8 +23,8 @@ const Contact = () => {
     message: "",
   })
 
-  // Provide your Web3Forms access key here:
-  const WEB3FORMS_ACCESS_KEY = "a0dc6d5d-9021-47bd-b111-e9969a3e1e5d";
+  // Provide your Web3Forms access key here via an environment variable:
+  const WEB3FORMS_ACCESS_KEY = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY || "a0dc6d5d-9021-47bd-b111-e9969a3e1e5d";
 
   const [loading, setLoading] = useState(false)
   const [success, setSuccess] = useState(false)
