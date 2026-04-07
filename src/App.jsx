@@ -124,6 +124,7 @@ function App() {
         <ErrorBoundary><Extracurricular /></ErrorBoundary>
         <ErrorBoundary><Tech /></ErrorBoundary>
         <ErrorBoundary><Works /></ErrorBoundary>
+        <ErrorBoundary><Contact /></ErrorBoundary>
         <ErrorBoundary><Footer /></ErrorBoundary>
         <ErrorBoundary><StarsCanvas /></ErrorBoundary>
       </div>

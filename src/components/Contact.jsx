@@ -2,29 +2,29 @@
 
 import { useRef, useState, useCallback, useEffect } from "react"
 import { motion } from "framer-motion"
-import emailjs from "@emailjs/browser"
 import { Toaster, toast } from "react-hot-toast"
 import Confetti from "react-confetti"
-import ReCAPTCHA from "react-google-recaptcha"
 
 import { styles } from "../styles"
 import { EarthCanvas } from "./canvas"
 import { SectionWrapper } from "../hoc"
 import { slideIn } from "../utils/motion"
-import profile from "../config/profile"
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faUser, faEnvelope, faComment, faPaperPlane, faSpinner, faPhone } from "@fortawesome/free-solid-svg-icons"
+import { faUser, faEnvelope, faComment, faPaperPlane, faSpinner, faPhone, faList, faCalendarCheck } from "@fortawesome/free-solid-svg-icons"
 
 const Contact = () => {
   const formRef = useRef()
-  const captchaRef = useRef()
-  const [captchaToken, setCaptchaToken] = useState(null)
   const [form, setForm] = useState({
     name: "",
     email: "",
+    phone: "",
+    subject: "Project",
     message: "",
   })
+
+  // Provide your Web3Forms access key here:
+  const WEB3FORMS_ACCESS_KEY = "YOUR_WEB3FORMS_ACCESS_KEY_HERE";
 
   const [loading, setLoading] = useState(false)
   const [success, setSuccess] = useState(false)
@@ -54,10 +54,7 @@ const Contact = () => {
     } else {
       document.body.style.overflowX = ""
     }
-
-    return () => {
-      document.body.style.overflowX = ""
-    }
+    return () => { document.body.style.overflowX = "" }
   }, [showConfetti])
 
   const handleChange = (e) => {
@@ -65,21 +62,12 @@ const Contact = () => {
     setForm({ ...form, [name]: value })
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
 
-    if (!form.name || !form.email || !form.message) {
-      toast.error("Please fill all fields before submitting.", {
+    if (!form.name || !form.email || !form.message || !form.subject) {
+      toast.error("Please fill all required fields before submitting.", {
         duration: 3000,
-        position: "bottom-right",
-      })
-      return
-    }
-
-    if (!captchaToken) {
-      toast("Please complete the CAPTCHA check.", {
-        icon: "!",
-        duration: 3500,
         position: "bottom-right",
       })
       return
@@ -87,45 +75,52 @@ const Contact = () => {
 
     setLoading(true)
 
-    emailjs
-      .send(
-        import.meta.env.VITE_EMAILJS_SERVICE_ID,
-        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
-        {
-          from_name: form.name,
-          to_name: profile.fullName,
-          from_email: form.email,
-          to_email: profile.contact.email,
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          access_key: WEB3FORMS_ACCESS_KEY,
+          name: form.name,
+          email: form.email,
+          phone: form.phone || "Not provided",
+          subject: form.subject,
           message: form.message,
-        },
-        import.meta.env.VITE_EMAIL_JS_ACCESS_TOKEN,
-      )
-      .then(
-        () => {
-          setLoading(false)
-          setSuccess(true)
-          setForm({ name: "", email: "", message: "" })
-          toast.success("Message sent successfully!", {
-            duration: 3000,
-            position: "bottom-right",
-          })
-          setShowConfetti(true)
-          setCaptchaToken(null)
-          captchaRef.current.reset()
-          setTimeout(() => {
-            setSuccess(false)
-            setShowConfetti(false)
-          }, 5000)
-        },
-        (error) => {
-          setLoading(false)
-          console.error(error)
-          toast.error("Something went wrong. Please try again.", {
-            duration: 3000,
-            position: "bottom-right",
-          })
-        },
-      )
+        }),
+      });
+      const result = await response.json();
+
+      if (result.success) {
+        setLoading(false)
+        setSuccess(true)
+        setForm({ name: "", email: "", phone: "", subject: "Project", message: "" })
+        toast.success("Message sent successfully!", {
+          duration: 3000,
+          position: "bottom-right",
+        })
+        setShowConfetti(true)
+        setTimeout(() => {
+          setSuccess(false)
+          setShowConfetti(false)
+        }, 5000)
+      } else {
+        setLoading(false)
+        toast.error("Failed to send message. Please replace the dummy access key.", {
+          duration: 4000,
+          position: "bottom-right",
+        })
+      }
+    } catch (error) {
+      setLoading(false)
+      console.error(error)
+      toast.error("Something went wrong. Please try again.", {
+        duration: 3000,
+        position: "bottom-right",
+      })
+    }
   }
 
   const handleConfettiComplete = useCallback(() => {
@@ -133,7 +128,8 @@ const Contact = () => {
   }, [])
 
   return (
-    <div className={`xl:mt-12 flex xl:flex-row flex-col-reverse gap-10 overflow-hidden no-select`}>
+    <div className="flex flex-col w-full relative z-0">
+      <div className={`xl:mt-12 flex xl:flex-row flex-col-reverse gap-10 overflow-hidden no-select`}>
       <Toaster />
       {showConfetti && (
         <Confetti
@@ -148,111 +144,140 @@ const Contact = () => {
         variants={slideIn("left", "tween", 0.2, 1)}
         className="flex-[0.75] bg-tertiary/80 backdrop-blur-xl p-8 rounded-2xl border border-white/10 shadow-[0_8px_32px_0_rgba(0,0,0,0.4)]"
       >
-        <div className="flex justify-between items-center mb-4">
-          <p className={styles.sectionSubText}>Get in touch</p>
-          <a
-            href={`tel:${profile.contact.phoneE164}`}
-            className="text-purple-400 hover:text-purple-300 transition-all duration-300 flex items-center gap-2 hover:gap-3 group"
-          >
-            <FontAwesomeIcon icon={faPhone} className="group-hover:rotate-12 transition-transform duration-300" />
-            <span className="font-medium">{profile.contact.phoneDisplay}</span>
-          </a>
-        </div>
+        <p className={styles.sectionSubText}>Get in touch</p>
         <h3 className={styles.sectionHeadText}>Contact.</h3>
 
-        <form ref={formRef} onSubmit={handleSubmit} className="mt-12 flex flex-col gap-8">
-          <div className="flex flex-col sm:flex-row gap-8">
+        <form ref={formRef} onSubmit={handleSubmit} className="mt-6 flex flex-col gap-4">
+          <div className="flex flex-col sm:flex-row gap-4">
             <div className="flex-1">
               <label className="flex flex-col">
-                <span className="text-white font-medium mb-4 flex items-center gap-2">
-                  <FontAwesomeIcon icon={faUser} className="text-purple-400" />
-                  Name
+                <span className="text-white font-medium mb-2 text-sm flex items-center gap-2">
+                  <FontAwesomeIcon icon={faUser} className="text-purple-400 text-xs" />
+                  Name <span className="text-red-500">*</span>
                 </span>
                 <input
                   type="text"
                   name="name"
                   value={form.name}
                   onChange={handleChange}
-                  placeholder="Your name"
-                  className="bg-black-100/50 backdrop-blur-sm py-4 px-6 placeholder:text-secondary text-white rounded-xl outline-none border-2 border-white/20 font-medium transition-all duration-300 focus:ring-2 focus:ring-purple-500/50 focus:border-purple-500 focus:bg-black-100/70 hover:border-white/30"
+                  placeholder="Your Name"
+                  className="bg-black-100/50 backdrop-blur-sm py-3 px-4 placeholder:text-secondary/70 text-white text-sm rounded-lg outline-none border border-white/10 font-medium transition-all duration-300 focus:ring-1 focus:ring-purple-500 focus:border-purple-500 hover:border-white/20"
+                  required
                 />
               </label>
             </div>
             <div className="flex-1">
               <label className="flex flex-col">
-                <span className="text-white font-medium mb-4 flex items-center gap-2">
-                  <FontAwesomeIcon icon={faEnvelope} className="text-purple-400" />
-                  Email
+                <span className="text-white font-medium mb-2 text-sm flex items-center gap-2">
+                  <FontAwesomeIcon icon={faEnvelope} className="text-purple-400 text-xs" />
+                  Email <span className="text-red-500">*</span>
                 </span>
                 <input
                   type="email"
                   name="email"
                   value={form.email}
                   onChange={handleChange}
-                  placeholder="Your email"
-                  className="bg-black-100/50 backdrop-blur-sm py-4 px-6 placeholder:text-secondary text-white rounded-xl outline-none border-2 border-white/20 font-medium transition-all duration-300 focus:ring-2 focus:ring-purple-500/50 focus:border-purple-500 focus:bg-black-100/70 hover:border-white/30"
+                  placeholder="Your Email"
+                  className="bg-black-100/50 backdrop-blur-sm py-3 px-4 placeholder:text-secondary/70 text-white text-sm rounded-lg outline-none border border-white/10 font-medium transition-all duration-300 focus:ring-1 focus:ring-purple-500 focus:border-purple-500 hover:border-white/20"
+                  required
                 />
               </label>
             </div>
           </div>
+
+          <div className="flex flex-col sm:flex-row gap-4">
+            <div className="flex-1">
+              <label className="flex flex-col">
+                <span className="text-white font-medium mb-2 text-sm flex items-center gap-2">
+                  <FontAwesomeIcon icon={faPhone} className="text-purple-400 text-xs" />
+                  Phone Number <span className="text-gray-500 text-[10px]">(optional)</span>
+                </span>
+                <input
+                  type="tel"
+                  name="phone"
+                  value={form.phone}
+                  onChange={handleChange}
+                  placeholder="Your Phone Number"
+                  className="bg-black-100/50 backdrop-blur-sm py-3 px-4 placeholder:text-secondary/70 text-white text-sm rounded-lg outline-none border border-white/10 font-medium transition-all duration-300 focus:ring-1 focus:ring-purple-500 focus:border-purple-500 hover:border-white/20"
+                />
+              </label>
+            </div>
+            <div className="flex-1">
+              <label className="flex flex-col relative w-full">
+                <span className="text-white font-medium mb-2 text-sm flex items-center gap-2">
+                  <FontAwesomeIcon icon={faList} className="text-purple-400 text-xs" />
+                  Inquiry Type <span className="text-red-500">*</span>
+                </span>
+                <select
+                  name="subject"
+                  value={form.subject}
+                  onChange={handleChange}
+                  className="bg-black-100/50 backdrop-blur-sm py-3 px-4 text-white text-sm rounded-lg outline-none border border-white/10 font-medium transition-all duration-300 focus:ring-1 focus:ring-purple-500 focus:border-purple-500 hover:border-white/20 w-full cursor-pointer appearance-none"
+                  required
+                >
+                  <option value="Project" className="bg-[#100d25] text-white">Project Discussion</option>
+                  <option value="Hiring" className="bg-[#100d25] text-white">Hiring / Job Opportunity</option>
+                  <option value="General Inquiry" className="bg-[#100d25] text-white">General Inquiry</option>
+                </select>
+                <span className="absolute right-4 top-[38px] pointer-events-none text-purple-400 text-xs">
+                  ▼
+                </span>
+              </label>
+            </div>
+          </div>
+
           <label className="flex flex-col">
-            <span className="text-white font-medium mb-4 flex items-center gap-2">
-              <FontAwesomeIcon icon={faComment} className="text-purple-400" />
-              Message
+            <span className="text-white font-medium mb-2 text-sm flex items-center gap-2">
+              <FontAwesomeIcon icon={faComment} className="text-purple-400 text-xs" />
+              Message <span className="text-red-500">*</span>
             </span>
             <textarea
-              rows={7}
+              rows={4}
               name="message"
               value={form.message}
               onChange={handleChange}
-              placeholder={profile.contactMessagePlaceholder}
-              className="bg-black-100/50 backdrop-blur-sm py-4 px-6 placeholder:text-secondary text-white rounded-xl outline-none border-2 border-white/20 font-medium transition-all duration-300 focus:ring-2 focus:ring-purple-500/50 focus:border-purple-500 focus:bg-black-100/70 hover:border-white/30 resize-none"
+              placeholder="What do you want to achieve?"
+              className="bg-black-100/50 backdrop-blur-sm py-3 px-4 placeholder:text-secondary/70 text-white text-sm rounded-lg outline-none border border-white/10 font-medium transition-all duration-300 focus:ring-1 focus:ring-purple-500 focus:border-purple-500 hover:border-white/20 resize-none"
+              required
             />
           </label>
 
-          <div className="flex justify-center">
-            <div className="rounded-lg overflow-hidden shadow-lg">
-              <ReCAPTCHA
-                sitekey={import.meta.env.VITE_RECAPTCHA_SITE_KEY}
-                onChange={(token) => setCaptchaToken(token)}
-                theme="dark"
-                ref={captchaRef}
-              />
-            </div>
+          <div className="flex justify-center mt-4">
+            <button
+              type="submit"
+              className="bg-[#915EFF] hover:bg-[#7b46eb] py-3 px-10 rounded-lg text-white text-sm font-bold transition-all duration-300 flex items-center justify-center gap-2 shadow-[0_0_10px_rgba(145,94,255,0.4)] hover:shadow-[0_0_15px_rgba(145,94,255,0.6)] disabled:opacity-50"
+              disabled={loading}
+            >
+              {loading ? (
+                <FontAwesomeIcon icon={faSpinner} spin className="text-lg" />
+              ) : success ? (
+                <><span>Sent Successfully</span> <FontAwesomeIcon icon={faPaperPlane} className="text-xs" /></>
+              ) : (
+                <><span>Send Message</span> <FontAwesomeIcon icon={faPaperPlane} className="text-xs" /></>
+              )}
+            </button>
           </div>
-          <span className="text-xs text-gray-400 text-center -mt-4">Protected by reCAPTCHA Enterprise.</span>
-
-          <button
-            type="submit"
-            className="relative bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white font-bold py-4 px-8 rounded-xl transition-all duration-300 flex items-center justify-center gap-3 shadow-[0_0_20px_rgba(168,85,247,0.4)] hover:shadow-[0_0_30px_rgba(168,85,247,0.6)] hover:scale-[1.02] active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 overflow-hidden group"
-            disabled={loading}
-          >
-            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
-            {loading ? (
-              <FontAwesomeIcon icon={faSpinner} spin className="text-xl" />
-            ) : success ? (
-              <>
-                <span>Sent Successfully</span>
-                <FontAwesomeIcon
-                  icon={faPaperPlane}
-                  className="group-hover:translate-x-1 transition-transform duration-300"
-                />
-              </>
-            ) : (
-              <>
-                <span>Send Message</span>
-                <FontAwesomeIcon
-                  icon={faPaperPlane}
-                  className="group-hover:translate-x-1 transition-transform duration-300"
-                />
-              </>
-            )}
-          </button>
         </form>
       </motion.div>
 
       <motion.div variants={slideIn("right", "tween", 0.2, 1)} className="xl:flex-1 xl:h-auto md:h-[550px] h-[350px]">
         <EarthCanvas />
+      </motion.div>
+      </div>
+
+      <motion.div 
+        variants={slideIn("up", "tween", 0.3, 1)}
+        className="w-full flex justify-center mt-12 pb-4"
+      >
+        <a
+          href="https://calendly.com/shantoislam1357"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="bg-transparent border-2 border-[#915EFF] text-white hover:bg-[#915EFF] py-4 px-10 rounded-full text-lg font-bold transition-all duration-300 flex items-center justify-center gap-3 shadow-[0_0_15px_rgba(145,94,255,0.3)] hover:shadow-[0_0_20px_rgba(145,94,255,0.6)] group"
+        >
+          <FontAwesomeIcon icon={faCalendarCheck} className="text-[#915EFF] group-hover:text-white transition-colors text-xl" />
+          Schedule a Meeting
+        </a>
       </motion.div>
     </div>
   )
