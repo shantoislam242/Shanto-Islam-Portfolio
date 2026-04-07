@@ -108,7 +108,8 @@ const Contact = () => {
         }, 5000)
       } else {
         setLoading(false)
-        toast.error("Failed to send message. Please replace the dummy access key.", {
+        console.error("Web3Forms Error:", result)
+        toast.error(`Error: ${result.message || "Failed to send message"}`, {
           duration: 4000,
           position: "bottom-right",
         })
