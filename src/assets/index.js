@@ -77,6 +77,7 @@ import knifethrowimage from "./knifethrow_demonstration.jpg"
 // import password_generator from "./passwordgenerator.png"
 // import wordsearch from "./wordsearchoutput.jpg"  // unused - commented out in constants
 import financialflowimage from "./FinancialFlowDemonstration.png"
+import databrandixWebsite from "./databrandix_website.png"
 // import enterpriseapitester from "./enterpriseapiui.png"
  
 // Use the stable route; dev/prod redirect to /resume/<basename>
@@ -142,6 +143,7 @@ export {
   awsdbcert,
   connectwisecert,
   financialflowimage,
+  databrandixWebsite,
   // enterpriseapitester,
   profilepic,
   docker,

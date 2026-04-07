@@ -152,7 +152,7 @@ const EarthCanvas = () => {
         return;
       }
 
-      const geometry = new THREE.SphereGeometry(4, 64, 64);
+      const geometry = new THREE.SphereGeometry(3.5, 64, 64);
       const material = new THREE.MeshStandardMaterial({
         map: texture,
         emissive: texture,
@@ -164,7 +164,7 @@ const EarthCanvas = () => {
       earthMesh = new THREE.Mesh(geometry, material);
       scene.add(earthMesh);
 
-      const glowGeo = new THREE.SphereGeometry(4.3, 64, 64);
+      const glowGeo = new THREE.SphereGeometry(3.78, 64, 64);
       const glowMat = new THREE.ShaderMaterial({
         side: THREE.BackSide,
         transparent: true,

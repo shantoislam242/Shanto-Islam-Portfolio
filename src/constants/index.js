@@ -50,6 +50,7 @@ import {
   connectwisecert,
   awsdbcert,
   financialflowimage,
+  databrandixWebsite,
   // enterpriseapitester,
   github,
   mongodb,
@@ -409,31 +410,51 @@ const extracurricular = [
 ];
 
 const projects = [
-    {
-    name: "Axelot ✍️",
+  {
+    name: "Databrandix Official Website",
     description:
-      "Axelot is a real-time collaborative writing and knowledge workspace built with Next.js 16, TypeScript, Firebase, TipTap 3, and Yjs. It supports multi-user editing with presence cursors, CRDT-based conflict-free sync over WebRTC, and AI-assisted editing via OpenRouter-backed Next.js API routes. Features secure auth with NextAuth v5 (Google/GitHub OAuth, email/password with bcrypt), Firestore-backed storage with Firebase custom tokens, a Vercel cron-powered trending algorithm, and production deployment via multi-stage Docker pipeline.",
+      "A modern and conversion-focused website for Databrandix, built with Next.js and React, featuring service pages, portfolio sections, blog content, and a reusable component-based architecture tailored for a digital growth of the company.",
     tags: [
       {
-        name: "Next.js 16",
+        name: "Next.js",
         color: "blue-text-gradient",
       },
       {
-        name: "TipTap 3 / Yjs",
+        name: "React",
         color: "green-text-gradient",
       },
       {
-        name: "WebRTC",
+        name: "TypeScript",
         color: "pink-text-gradient",
       },
       {
-        name: "OpenRouter AI",
+        name: "JavaScript",
+        color: "blue-text-gradient",
+      },
+      {
+        name: "SCSS",
+        color: "green-text-gradient",
+      },
+      {
+        name: "Bootstrap",
+        color: "pink-text-gradient",
+      },
+      {
+        name: "GSAP",
+        color: "blue-text-gradient",
+      },
+      {
+        name: "Swiper",
+        color: "green-text-gradient",
+      },
+      {
+        name: "ESLint",
         color: "blue-text-gradient",
       },
     ],
-    image: axelotlanding,
-    source_code_link: "https://github.com/royce-mathew/axelot",
-    live_project_link: "https://www.axelot.io",
+    image: databrandixWebsite,
+    source_code_link: "https://github.com/shantoislam242/Databrandix-web-page",
+    live_project_link: "https://databrandix-web-page.vercel.app/",
   },
   {
     name: "Netdash (Networking Toolbox) 🌐",
@@ -608,3 +629,4 @@ export {
   education,
   testimonials
 };
+
