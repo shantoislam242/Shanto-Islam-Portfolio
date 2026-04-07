@@ -4,6 +4,7 @@ import { useRef, useState, useCallback, useEffect } from "react"
 import { motion } from "framer-motion"
 import { Toaster, toast } from "react-hot-toast"
 import Confetti from "react-confetti"
+import { PopupModal } from "react-calendly"
 
 import { styles } from "../styles"
 import { EarthCanvas } from "./canvas"
@@ -29,6 +30,7 @@ const Contact = () => {
   const [loading, setLoading] = useState(false)
   const [success, setSuccess] = useState(false)
   const [showConfetti, setShowConfetti] = useState(false)
+  const [isCalendlyOpen, setIsCalendlyOpen] = useState(false)
   const [windowDimension, setWindowDimension] = useState({
     width: window.innerWidth,
     height: window.innerHeight,
@@ -270,16 +272,31 @@ const Contact = () => {
         variants={slideIn("up", "tween", 0.3, 1)}
         className="w-full flex justify-center mt-12 pb-4"
       >
-        <a
-          href="https://calendly.com/shantoislam1357"
-          target="_blank"
-          rel="noopener noreferrer"
+        <button
+          onClick={(e) => {
+            e.preventDefault();
+            setIsCalendlyOpen(true);
+          }}
           className="bg-transparent border-2 border-[#915EFF] text-white hover:bg-[#915EFF] py-4 px-10 rounded-full text-lg font-bold transition-all duration-300 flex items-center justify-center gap-3 shadow-[0_0_15px_rgba(145,94,255,0.3)] hover:shadow-[0_0_20px_rgba(145,94,255,0.6)] group"
         >
           <FontAwesomeIcon icon={faCalendarCheck} className="text-[#915EFF] group-hover:text-white transition-colors text-xl" />
           Schedule a Meeting
-        </a>
+        </button>
       </motion.div>
+
+      <PopupModal
+        url="https://calendly.com/shantoislam1357/30min"
+        pageSettings={{
+          backgroundColor: '050816',
+          hideEventTypeDetails: false,
+          hideLandingPageDetails: false,
+          primaryColor: '915eff',
+          textColor: 'ffffff'
+        }}
+        onModalClose={() => setIsCalendlyOpen(false)}
+        open={isCalendlyOpen}
+        rootElement={document.getElementById("root")}
+      />
     </div>
   )
 }

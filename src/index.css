@@ -113,6 +113,17 @@ body {
   -webkit-text-fill-color: transparent;
 }
 
+/* Calendly popup - background override only, no size/layout changes */
+.calendly-overlay {
+  background-color: rgba(5, 8, 22, 0.9) !important;
+}
+.calendly-overlay .calendly-popup {
+  background-color: #050816 !important;
+}
+.calendly-overlay .calendly-popup-content {
+  background-color: #050816 !important;
+}
+
 /* canvas- styles */
 .canvas-loader {
   font-size: 10px;
