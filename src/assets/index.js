@@ -81,9 +81,7 @@ import databrandixWebsite from "./databrandix_website.png"
 import luxcartWebsite from "./luxcart_website.png"
 import spendWiseImage from "./p3.png"
 // import enterpriseapitester from "./enterpriseapiui.png"
- 
-// Use the stable route; dev/prod redirect to /resume/<basename>
-const resume = "/resume";
+
 import awsdbcert from "./AWS Database Specialty Certified - Sunny Jayendra Patel.jpg"
 import connectwisecert from "./Connectwise-Scripting-Certification.pdf"
 
@@ -141,7 +139,6 @@ export {
   premiere,
   cinema4d,
   // blender,  // unused - not in Tech.jsx
-  resume,
   awsdbcert,
   connectwisecert,
   financialflowimage,
