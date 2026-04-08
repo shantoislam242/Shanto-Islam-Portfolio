@@ -25,7 +25,6 @@ import {
   cplusplus,
   typescript,
   axelotlanding,
-  netdashlanding,
   securebankdashboard,
   sunnifyimage,
   knifethrowimage,
@@ -52,6 +51,7 @@ import {
   financialflowimage,
   databrandixWebsite,
   luxcartWebsite,
+  spendWiseImage,
   // enterpriseapitester,
   github,
   mongodb,
@@ -492,30 +492,42 @@ const projects = [
     live_project_link: "https://luxecart-e-commerce.vercel.app/",
   },
   {
-    name: "Netdash (Networking Toolbox) 🌐",
+    name: "SpendWise - Personal Expense Tracker",
     description:
-      "Netdash is a cross-platform Electron desktop app (macOS, Windows, Linux) with Homebrew distribution, featuring Firebase Auth with Google OAuth and real-time Firestore sync. It includes 15+ networking tools for subnetting, VLSM, IP conflict detection, and multi-vendor configuration generation. Built with RTT measurement via Performance API, TCP port scanning, DNS-over-HTTPS with TTL-aware caching, and RFC-compliant IPv4/IPv6 algorithms with WCAG2.2 accessibility compliance.",
+      "Full-stack finance app built with React, TypeScript, and Vite featuring a responsive Tailwind UI and animated UX. Enables expense tracking across 10 categories, budget management, and interactive analytics. Integrates API for insights and uses an Express + SQLite backend for data persistence.",
     tags: [
       {
-        name: "Electron",
+        name: "React",
         color: "blue-text-gradient",
       },
       {
-        name: "Firebase",
+        name: "TypeScript",
         color: "green-text-gradient",
       },
       {
-        name: "DNS-over-HTTPS",
+        name: "Vite",
         color: "pink-text-gradient",
       },
       {
-        name: "WCAG2.2",
+        name: "Tailwind CSS",
+        color: "blue-text-gradient",
+      },
+      {
+        name: "Recharts",
+        color: "green-text-gradient",
+      },
+      {
+        name: "Express",
+        color: "pink-text-gradient",
+      },
+      {
+        name: "SQLite",
         color: "blue-text-gradient",
       },
     ],
-    image: netdashlanding,
-    source_code_link: "https://github.com/sunnypatell/netdash-toolkit/",
-    live_project_link: "https://netdash-toolkit.vercel.app/",
+    image: spendWiseImage,
+    source_code_link: "https://github.com/shantoislam242/expense-tracker",
+    live_project_link: "https://expense-tracker-steel-ten-61.vercel.app",
   },
   {
     name: "SecureBank 🏦",

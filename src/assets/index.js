@@ -79,6 +79,7 @@ import knifethrowimage from "./knifethrow_demonstration.jpg"
 import financialflowimage from "./FinancialFlowDemonstration.png"
 import databrandixWebsite from "./databrandix_website.png"
 import luxcartWebsite from "./luxcart_website.png"
+import spendWiseImage from "./p3.png"
 // import enterpriseapitester from "./enterpriseapiui.png"
  
 // Use the stable route; dev/prod redirect to /resume/<basename>
@@ -146,6 +147,7 @@ export {
   financialflowimage,
   databrandixWebsite,
   luxcartWebsite,
+  spendWiseImage,
   // enterpriseapitester,
   profilepic,
   docker,
