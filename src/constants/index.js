@@ -494,7 +494,7 @@ const projects = [
   {
     name: "SpendWise - Personal Expense Tracker",
     description:
-      "Full-stack finance app built with React, TypeScript, and Vite featuring a responsive Tailwind UI and animated UX. Enables expense tracking across 10 categories, budget management, and interactive analytics. Integrates API for insights and uses an Express + SQLite backend for data persistence.",
+      "A personal finance app built with React, TypeScript, and Vite for expense tracking, budget management, and interactive analytics, powered by an Express and SQLite backend.",
     tags: [
       {
         name: "React",

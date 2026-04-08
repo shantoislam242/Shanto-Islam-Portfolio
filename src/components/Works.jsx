@@ -14,7 +14,7 @@ const ProjectCard = ({
   live_project_link,
 }) => {
   return (
-    <div className="sm:w-[360px] w-full rounded-2xl bg-[linear-gradient(145deg,rgba(23,18,45,0.96),rgba(13,10,28,0.92))] p-5 transition-all duration-300 hover:scale-[1.04] hover:bg-[linear-gradient(145deg,rgba(145,94,255,0.22),rgba(8,145,178,0.18),rgba(13,10,28,0.96))]">
+    <div className="sm:w-[360px] w-full h-full rounded-2xl bg-[linear-gradient(145deg,rgba(23,18,45,0.96),rgba(13,10,28,0.92))] p-5 transition-all duration-300 hover:scale-[1.04] hover:bg-[linear-gradient(145deg,rgba(145,94,255,0.22),rgba(8,145,178,0.18),rgba(13,10,28,0.96))] flex flex-col">
       <div className="relative w-full h-[230px]">
         <img
           src={image}
@@ -40,7 +40,7 @@ const ProjectCard = ({
         )}
       </div>
 
-      <div className="mt-5">
+      <div className="mt-5 flex-1">
         <h3 className="text-white font-bold text-[24px]">{name}</h3>
         <p className="mt-2 text-secondary text-[14px]">{description}</p>
       </div>
@@ -54,7 +54,12 @@ const ProjectCard = ({
       </div>
 
       {live_project_link && (
-        <a href={live_project_link} target="_blank" rel="noopener noreferrer">
+        <a
+          href={live_project_link}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="mt-3"
+        >
           <button className="mt-3 rounded-md bg-primary px-4 py-2 font-medium text-white transition-all duration-200 hover:scale-[1.03] hover:bg-[#915EFF] hover:shadow-[0_10px_25px_rgba(145,94,255,0.28)]">
             Live Project
           </button>
@@ -78,8 +83,8 @@ const Works = () => {
       </div>
 
       <div>
-        <div className="grid grid-cols-1 gap-4 place-items-center md:grid-cols-2 xl:grid-cols-3 xl:gap-7">
-          {projects.map((project, index) => (
+        <div className="grid grid-cols-1 gap-4 items-stretch md:grid-cols-2 xl:grid-cols-3 xl:gap-7">
+          {projects.slice(0, 3).map((project, index) => (
             <ProjectCard key={`project-${index}`} {...project} />
           ))}
         </div>
