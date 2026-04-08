@@ -26,7 +26,7 @@ const profile = {
   seo: {
     title: "Shanto Islam | Portfolio",
     description:
-      "Shanto Islam - Full-stack software engineer specializing in cloud, systems, and web development.",
+      "Shanto Islam - React, Next.js, and AR/VR developer building modern, responsive web experiences.",
     keywords:
       "Shanto Islam, Software Engineer, Portfolio, React, Three.js, JavaScript, Cloud",
     ogImage: "/favicon.png",
