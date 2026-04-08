@@ -78,6 +78,7 @@ import knifethrowimage from "./knifethrow_demonstration.jpg"
 // import wordsearch from "./wordsearchoutput.jpg"  // unused - commented out in constants
 import financialflowimage from "./FinancialFlowDemonstration.png"
 import databrandixWebsite from "./databrandix_website.png"
+import luxcartWebsite from "./luxcart_website.png"
 // import enterpriseapitester from "./enterpriseapiui.png"
  
 // Use the stable route; dev/prod redirect to /resume/<basename>
@@ -144,6 +145,7 @@ export {
   connectwisecert,
   financialflowimage,
   databrandixWebsite,
+  luxcartWebsite,
   // enterpriseapitester,
   profilepic,
   docker,

@@ -51,6 +51,7 @@ import {
   awsdbcert,
   financialflowimage,
   databrandixWebsite,
+  luxcartWebsite,
   // enterpriseapitester,
   github,
   mongodb,
@@ -455,6 +456,40 @@ const projects = [
     image: databrandixWebsite,
     source_code_link: "https://github.com/shantoislam242/Databrandix-web-page",
     live_project_link: "https://databrandix-web-page.vercel.app/",
+  },
+  {
+    name: "Luxcart eCommerce Website",
+    description:
+      "LuxeCart E-Commerce – Full-stack e-commerce platform with React frontend, Express backend, JWT auth, Stripe payments, and admin dashboard. Showcases secure API design, real-time cart management, and responsive UI with Tailwind CSS.",
+    tags: [
+      {
+        name: "React",
+        color: "blue-text-gradient",
+      },
+      {
+        name: "TypeScript",
+        color: "green-text-gradient",
+      },
+      {
+        name: "Node.js/Express",
+        color: "pink-text-gradient",
+      },
+      {
+        name: "MongoDB",
+        color: "blue-text-gradient",
+      },
+      {
+        name: "Stripe API",
+        color: "green-text-gradient",
+      },
+      {
+        name: "JavaScript",
+        color: "pink-text-gradient",
+      },
+    ],
+    image: luxcartWebsite,
+    source_code_link: "https://github.com/shantoislam242/luxecart-e-commerce",
+    live_project_link: "https://luxecart-e-commerce.vercel.app/",
   },
   {
     name: "Netdash (Networking Toolbox) 🌐",
