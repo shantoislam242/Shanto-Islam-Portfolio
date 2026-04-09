@@ -71,6 +71,7 @@ import wadhwani from "./company/wadhwani.webp"
 import axelotlanding from "./axelotlanding.png"
 import netdashlanding from "./netdashlanding.png"
 import securebankdashboard from "./securebankdash.jpg"
+import animalArCardImage from "./animal-ar-card.jpg"
 import sunnifyimage from "./demonstration 2.jpg"
 import knifethrowimage from "./knifethrow_demonstration.jpg"
 // import pythonanalysis from "./data_analysis.png"
@@ -116,6 +117,7 @@ export {
   axelotlanding,
   netdashlanding,
   securebankdashboard,
+  animalArCardImage,
   sunnifyimage,
   knifethrowimage,
   // pythonanalysis,

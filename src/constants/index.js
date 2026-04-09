@@ -26,6 +26,7 @@ import {
   typescript,
   axelotlanding,
   securebankdashboard,
+  animalArCardImage,
   sunnifyimage,
   knifethrowimage,
   // pythonanalysis,
@@ -76,6 +77,38 @@ export const navLinks = [
   {
     id: "education",
     title: "Education",
+    tags: [
+      {
+        name: "Unity",
+        color: "blue-text-gradient",
+      },
+      {
+        name: "AR",
+        color: "green-text-gradient",
+      },
+      {
+        name: "Android APK",
+        color: "pink-text-gradient",
+      },
+      {
+        name: "Interactive Book",
+        color: "blue-text-gradient",
+      },
+    ],
+    image: animalArCardImage,
+    source_code_link: "https://github.com/shantoislam242",
+    resource_note:
+      "Book আর APK link add করলে এখানেই direct download button দেখা যাবে.",
+    resource_links: [
+      {
+        label: "Download Book",
+        href: "",
+      },
+      {
+        label: "Download APK",
+        href: "",
+      },
+    ],
   },
   {
     id: "work",
@@ -528,6 +561,45 @@ const projects = [
     image: spendWiseImage,
     source_code_link: "https://github.com/shantoislam242/expense-tracker",
     live_project_link: "https://expense-tracker-steel-ten-61.vercel.app",
+  },
+  {
+    name: "Animal AR Book & APK",
+    description:
+      "An interactive AR learning project built around an animal-themed book and a companion Android app. This card is ready to show both the book and APK download actions in one place once you add the final links.",
+    layout: "horizontal",
+    tags: [
+      {
+        name: "Unity",
+        color: "blue-text-gradient",
+      },
+      {
+        name: "AR",
+        color: "green-text-gradient",
+      },
+      {
+        name: "Android APK",
+        color: "pink-text-gradient",
+      },
+      {
+        name: "Interactive Book",
+        color: "blue-text-gradient",
+      },
+    ],
+    image: animalArCardImage,
+    source_code_link: "https://github.com/shantoislam242",
+    resource_note:
+      "Visitors can download the book and app side by side, then open the preview video below.",
+    resource_links: [
+      {
+        label: "Download Book",
+        href: "https://github.com/shantoislam242/Shanto-Islam-Portfolio/releases/download/v1.0-animal-ar/Colorful.Creative.Illustrative.The.Forest.Adventure.Book.Cover_11zon.1.pdf",
+      },
+      {
+        label: "Download App",
+        href: "https://github.com/shantoislam242/Shanto-Islam-Portfolio/releases/download/v1.0-animal-ar/Pocket.Planet.Final.1.1.1.apk",
+      },
+    ],
+    preview_link: "",
   },
   {
     name: "SecureBank 🏦",
