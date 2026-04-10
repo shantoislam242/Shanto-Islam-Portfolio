@@ -77,38 +77,6 @@ export const navLinks = [
   {
     id: "education",
     title: "Education",
-    tags: [
-      {
-        name: "Unity",
-        color: "blue-text-gradient",
-      },
-      {
-        name: "AR",
-        color: "green-text-gradient",
-      },
-      {
-        name: "Android APK",
-        color: "pink-text-gradient",
-      },
-      {
-        name: "Interactive Book",
-        color: "blue-text-gradient",
-      },
-    ],
-    image: animalArCardImage,
-    source_code_link: "https://github.com/shantoislam242",
-    resource_note:
-      "Book à¦†à¦° APK link add à¦•à¦°à¦²à§‡ à¦à¦–à¦¾à¦¨à§‡à¦‡ direct download button à¦¦à§‡à¦–à¦¾ à¦¯à¦¾à¦¬à§‡.",
-    resource_links: [
-      {
-        label: "Download Book",
-        href: "",
-      },
-      {
-        label: "Download APK",
-        href: "",
-      },
-    ],
   },
   {
     id: "work",
@@ -157,7 +125,7 @@ const education = [
     company_name: "Green University of Bangladesh, Dhaka, Bangladesh",
     icon: greenUniversity,
     iconBg: "#fff",
-    date: "2022 â€“ 2026 (Graduated)",
+    date: "2022 - 2026 (Graduated)",
     points: [
       "Focused on Machine Learning, and AR/VR technologies.",
       "Strong foundation in core computer science and software engineering.",
@@ -168,7 +136,7 @@ const education = [
     company_name: "Cantonment Public School and College, Momenshahi",
     icon: cantonmentSchool,
     iconBg: "#fff",
-    date: "2017 â€“ 2019",
+    date: "2017 - 2019",
     points: [
       "Developed a strong foundation in Mathematics and ICT.",
     ],
@@ -317,7 +285,7 @@ const experiences = [
     icon: databrandix,
     iconBg: "#fff",
     iconPadding: 15,
-    date: "Jan 2026 â€“ Present | Uttara, Dhaka",
+    date: "Jan 2026 - Present | Uttara, Dhaka",
     points: [
       "Develop and maintain responsive web applications using Next.js and React.",
       "Convert Figma/PSD designs into pixel-perfect frontend implementations.",
@@ -331,7 +299,7 @@ const experiences = [
     icon: batteryLow,
     iconBg: "#fff",
     iconPadding: 15,
-    date: "Nov 2025 â€“ Dec 2025 | Baridhara, Dhaka",
+    date: "Nov 2025 - Dec 2025 | Baridhara, Dhaka",
     points: [
       "Built immersive AR/VR applications using Unity and C#.",
       "Integrated AR Foundation, Vuforia, and Meta SDK for interactive prototypes.",
@@ -340,10 +308,10 @@ const experiences = [
   },
   {
     title: "Career Development Intern",
-    company_name: "Green University of Bangladesh â€“ CCD",
+    company_name: "Green University of Bangladesh - CCD",
     icon: greenUniversityCcd,
     iconBg: "#fff",
-    date: "Sept 2025 â€“ Dec 2025 | Rupganj, Narayanganj",
+    date: "Sept 2025 - Dec 2025 | Rupganj, Narayanganj",
     points: [
       "Coordinated career programs and workshops for 100+ students.",
       "Managed departmental data entry and reporting systems.",
@@ -356,10 +324,10 @@ const experiences = [
 const extracurricular = [
   {
     title: "Python (Django) Web Development",
-    type: "Digital Skills for Students (DS4S) â€“ EDGE Project",
+    type: "Digital Skills for Students (DS4S) - EDGE Project",
     icon: ictDivision,
     iconBg: "#ffffff",
-    date: "Jul 2025 | IIT, Jahangirnagar University Â· ICT Division",
+    date: "Jul 2025 | IIT, Jahangirnagar University - ICT Division",
     points: [
       "Python Programming",
       "Django Web Framework",
@@ -369,7 +337,7 @@ const extracurricular = [
   },
   {
     title: "Software Engineering with Generative AI Agents",
-    type: "Vanderbilt University â€“ Coursera",
+    type: "Vanderbilt University - Coursera",
     icon: vanderbilt,
     iconBg: "#ffffff",
     date: "Mar 2026",
@@ -384,7 +352,7 @@ const extracurricular = [
   },
   {
     title: "AI for App Building",
-    type: "Google â€“ Coursera",
+    type: "Google - Coursera",
     icon: google,
     iconBg: "#ffffff",
     iconHeight: 45,
@@ -398,7 +366,7 @@ const extracurricular = [
   },
   {
     title: "AI for Data Analysis",
-    type: "Google â€“ Coursera",
+    type: "Google - Coursera",
     icon: google,
     iconBg: "#ffffff",
     iconHeight: 45,
@@ -427,7 +395,7 @@ const extracurricular = [
   },
   {
     title: "AI for Brainstorming and Planning",
-    type: "Google â€“ Coursera",
+    type: "Google - Coursera",
     icon: google,
     iconBg: "#ffffff",
     iconHeight: 45,
@@ -493,7 +461,7 @@ const projects = [
   {
     name: "Luxcart eCommerce Website",
     description:
-      "LuxeCart E-Commerce â€“ Full-stack e-commerce platform with React frontend, Express backend, JWT auth, Stripe payments, and admin dashboard. Showcases secure API design, real-time cart management, and responsive UI with Tailwind CSS.",
+      "LuxeCart E-Commerce - Full-stack e-commerce platform with React frontend, Express backend, JWT auth, Stripe payments, and admin dashboard. Showcases secure API design, real-time cart management, and responsive UI with Tailwind CSS.",
     tags: [
       {
         name: "React",
@@ -610,7 +578,7 @@ const projects = [
     preview_link: "",
   },
   {
-    name: "SecureBank ðŸ¦",
+    name: "SecureBank",
     description:
       "SecureBank is a deliberately vulnerable banking simulation built for Capture The Flag (CTF) training, focused on SQL injection and privilege escalation. It features exploit paths including raw query interpolation, single/double URL encoding, and a hidden admin portal to teach secure coding by example. Core features include transaction search/filter, a feedback system, and an admin dashboard with live DB console and security logs. Backed by a normalized SQLite schema with session handling via cookie-signature, and dockerized with structured challenge documentation.",
     tags: [
@@ -636,7 +604,7 @@ const projects = [
     live_project_link: "https://github.com/sunnypatell/securebank-ctf",
   },
   {
-    name: "Sunnify (Spotify Downloader) ðŸŽµ",
+    name: "Sunnify (Spotify Downloader)",
     description:
       "Sunnify is a Spotify downloader that reverse-engineers embed pages to extract track metadata by parsing protected JSON states without authentication. It features a cross-platform PyQt5 desktop client (macOS, Windows, Linux) with thread-safe UI updates and supports playlists with 1000+ tracks via Spotify's internal spclient API. Includes retry logic with exponential backoff for rate limiting, cross-platform FFmpeg detection, 43 pytest unit tests with GitHub Actions CI/CD, and ships as a Homebrew Cask.",
     tags: [
@@ -662,7 +630,7 @@ const projects = [
     live_project_link: "https://sunnify-spotify-downloader.vercel.app/",
   },
   {
-    name: "FinancialFlow ðŸ’¸",
+    name: "FinancialFlow",
     description:
       "Comprehensive personal finance management application built with Next.js and Typescript. It empowers users to take control of their financial health through intuitive tracking, insightful analytics, and personalized recommendations.",
     tags: [
@@ -689,7 +657,7 @@ const projects = [
   },
  
   {
-    name: "KnifeThrow ðŸŽ¯",
+    name: "KnifeThrow",
     description:
       "KnifeThrow is a Java Swing-based 2D mini-game, packed by maven with over 5000 lines of code. It includes a menu, game-over screens, sound effects, and custom sprites. Players unlock different knives with varied abilities in a dedicated knife shop. The game features improved collision systems, animations, and particle effects for an immersive experience.",
     tags: [
@@ -721,7 +689,7 @@ const testimonials = [
   {
     testimonial:
       "I highly recommend Sunny for his outstanding technical proficiency and professional approach as a System Support specialist at Mackenzie Hospital. His deep knowledge of iPad systems and troubleshooting abilities were instrumental in ensuring seamless operations and user satisfaction. Sunny's proactive attitude and problem-solving skills made him a reliable asset to our team, and he consistently exceeded expectations in resolving complex issues. I have no hesitation in endorsing him for any tech-related position, as I am confident he will excel in any challenge he takes on.",
-    name: "Feda Abukhadrah, BIT | SaaS | Health Tech | MDM | ABM | POS | ITILÂ®V4 | CompTIA A+",
+    name: "Feda Abukhadrah, BIT | SaaS | Health Tech | MDM | ABM | POS | ITIL V4 | CompTIA A+",
     designation: "Senior Service Desk Specialist",
     company: "Px Solutions LTD.",
     image: "https://randomuser.me/api/portraits/women/4.jpg",
@@ -729,7 +697,7 @@ const testimonials = [
   {
     testimonial:
       "Sunny Patel's expertise in the technological domain is truly remarkable. Proficient in programming languages like Java, Python, and C++, and highly skilled in Microsoft's suite of tools, Sunny's grasp of networking concepts is extensive. What sets him apart is his experience in handling over 1000 devices remotely and on-site, along with a successful track record in troubleshooting and deploying various software and hardware upgrades. His dedication to tackling complex challenges, grounded in a strong foundation in software design and a rich academic background in computer science, positions Sunny as a valuable asset to any tech-driven team.",
-    name: "Sanjay Sharma, MBA, CISSP, CISA, PMPÂ®",
+    name: "Sanjay Sharma, MBA, CISSP, CISA, PMP",
     designation: "Senior Vice-President and Head of Cybersecurity Services",
     company: "Pathway Communications / ex-Toronto Hydro",
     image: "https://randomuser.me/api/portraits/men/5.jpg",
