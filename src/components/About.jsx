@@ -9,7 +9,7 @@ import { fadeIn } from "../utils/motion"
 import { profilepic } from "../assets"
 import profile from "../config/profile"
 
-const resumeFile = "/resume/Shanto.cv.pdf"
+const resumeFile = "/resume/Shanto%20Islam"
 
 const About = () => {
   const sectionRef = useRef(null)
